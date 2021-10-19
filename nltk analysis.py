@@ -50,6 +50,12 @@ for w in words:
 
 #implementing lemmatization
 lemmatizer = WordNetLemmatizer()
-print("rocks:",lemmatizer.lemmatize("rocks"))
-print("corpora:",lemmatizer.lemmatize("corpora"))
-print("better:",lemmatizer.lemmatize("better",pos = "a"))
+sentence_words = nltk.word_tokenize(text)
+for word in sentence_words:
+    if word in punctuations:
+        sentence_words.remove(word)
+
+sentence_words
+print("{0:20}{1:20}".format("Word","Lemma"))
+for word in sentence_words:
+    print ("{0:20}{1:20}".format(word,WordNetLemmatizer.lemmatize(word)))
